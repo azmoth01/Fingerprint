@@ -261,10 +261,16 @@ function copyIcon(text) {
 /* ===== Mode ===== */
 
 function setMode(mode) {
+  if (mode !== 1 && mode !== 2) {
+    console.log("invalid mode.");
+    return;
+  }
   currentMode = mode;
 
   document.getElementById("mode1Btn").classList.toggle("active", mode === 1);
   document.getElementById("mode2Btn").classList.toggle("active", mode === 2);
+
+  localStorage.setItem("mode", mode);
 
   render();
 }
